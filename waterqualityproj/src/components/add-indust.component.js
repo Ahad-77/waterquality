@@ -39,11 +39,7 @@ export default class addindust extends Component {
             irn: e.target.value
         });
     }
-        onChangeIndustryName(e) {
-            this.setState({
-                industry_name: e.target.value
-            });
-        }
+       
 
         onChangecategory(e) {
             

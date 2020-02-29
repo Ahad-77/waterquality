@@ -8,7 +8,7 @@ const violationsSchema = new Schema({
   location: { type: String  },
   approved_status: { type: String },//approve for violation
   violated_param: { type: String  },
-  fine: { type: Number, required: true, min:1 },
+  fine: { type: Number, required: true, min:1 }
 }, {
   timestamps: true,
 });

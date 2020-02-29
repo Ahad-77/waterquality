@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import addindust from "./components/add-indust.component";
+import listViolations from "./components/violation-list.component";
 import home from "./components/home.component";
 import listindust from "./components/list-indust.component";
 import violatinos from "./components/violations.component";
@@ -29,7 +30,10 @@ class App extends Component {
                   <Link to="/industries" className="nav-link">Industry List</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/violations" className="nav-link">Violations</Link>
+                  <Link to="/violations" className="nav-link">Add Fine for Violations</Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to="/listv" className="nav-link">List of Violations</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/create" className="nav-link">Add Industry</Link>
@@ -39,6 +43,7 @@ class App extends Component {
           </nav>
           <br/>
           <Route path="/" exact component={home} />
+          <Route path="/listv"  component={listViolations} />
           <Route path="/industries"  component={listindust} />
           <Route path="/create" component={addindust} />
           <Route path="/violations"  component={violatinos} />
