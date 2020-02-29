@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import addindust from "./components/add-indust.component";
-import EditTodo from "./components/edit-todo.component";
 import home from "./components/home.component";
 import listindust from "./components/list-indust.component";
 import violatinos from "./components/violations.component";
@@ -20,7 +19,7 @@ class App extends Component {
             <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank">
               
             </a>
-            <Link to="/" className="navbar-brand">MERN-Stack Todo App</Link>
+            <Link to="/" className="navbar-brand">Water Quality Management</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
@@ -41,7 +40,6 @@ class App extends Component {
           <br/>
           <Route path="/" exact component={home} />
           <Route path="/industries"  component={listindust} />
-          <Route path="/edit/:id" component={EditTodo} />
           <Route path="/create" component={addindust} />
           <Route path="/violations"  component={violatinos} />
         </div>
