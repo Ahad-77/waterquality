@@ -20,9 +20,13 @@ connection.once('open', () => {
 
 const industriesRouter = require('./routes/Industries');
 const violationRouter = require('./routes/Violations');
+const sensorsDataRouter = require('./routes/sensorsData');
+
 
 app.use('/Industries', industriesRouter);
 app.use('/Violations', violationRouter);
+app.use('/SensorsData', sensorsDataRouter);
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
