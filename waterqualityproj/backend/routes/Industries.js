@@ -13,12 +13,22 @@ router.route('/').get((req, res) => {
     const crn = req.body.crn;
     const irn = req.body.irn;
     const category = req.body.category;
+    const industry_status = req.body.industry_status;
+    const location = req.body.location;
+    const status = req.body.status;
+    const no_violations = req.body.no_violations;
+    
+
   
     const newIndustry = new Industries({
         industry_name,
         crn,
         irn,
         category,
+        industry_status,
+        location,
+        status,
+        no_violations,
     });
   
     newIndustry.save()
@@ -44,7 +54,12 @@ router.route('/').get((req, res) => {
         industries.industry_name = req.body.industry_name;
         industries.crn = req.body.crn;
         industries.irn = req.body.irn;
-        industries.category = req.body.category;
+        industries.category = Number(req.body.category);
+        industries.industry_status = req.body.industry_status;
+        industries.location = req.body.location;
+        industries.status = req.body.status;
+        industries.no_violations = Number(req.body.no_violations);
+
   
         industries.save()
           .then(() => res.json('Industry updated!'))

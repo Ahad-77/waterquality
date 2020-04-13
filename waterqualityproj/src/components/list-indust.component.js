@@ -26,6 +26,7 @@ export default class listindust extends Component {
         this.deleteIndustry = this.deleteIndustry.bind(this)
     
         this.state = {industries: []};}
+
         componentDidMount() {
             axios.get('http://localhost:5000/industries/')
               .then(response => {
@@ -55,7 +56,7 @@ export default class listindust extends Component {
     render() {
         return (
             <div>
-            <h3>List of Violations</h3>
+            <h3>List of Industries</h3>
             <table className="table">
               <thead className="thead-light">
                 <tr>

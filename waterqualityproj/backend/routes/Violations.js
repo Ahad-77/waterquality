@@ -9,13 +9,18 @@ router.route('/').get((req, res) => {
   
   router.route('/add').post((req, res) => {
     const fine = req.body.fine;
+    const approved_status = req.body.approved_status;
+    const name_of_industry_visited = req.body.name_of_industry_visited;
+
  
-    const newFine = new Violations({
-        fine
+    const newViolation = new Violations({
+        fine,
+        approved_status,
+        name_of_industry_visited
     });
   
-    newFine.save()
-    .then(() => res.json('Fine added!'))
+    newViolation.save()
+    .then(() => res.json('Violation added!'))
     .catch(err => res.status(400).json('Error: ' + err));
   });
   
@@ -34,15 +39,11 @@ router.route('/').get((req, res) => {
   router.route('/update/:id').post((req, res) => {
     Violations.findById(req.params.id)
       .then(violations => {
-        const fine = req.body.fine;
-          if( fine==0){
-         
-        const approved_status = req.body.approved_status='Rejected';
-          }
+        violations.fine = req.body.fine;
+
         violations.save()
         .then(() => res.json('Fine Updated!'))
-        .then(() => res.json('Violation has been approved!'))
-          .catch(err => res.status(400).json('Error: ' + err));
+        .catch(err => res.status(400).json('Error: ' + err));
       })
       .catch(err => res.status(400).json('Error: ' + err));
   });
