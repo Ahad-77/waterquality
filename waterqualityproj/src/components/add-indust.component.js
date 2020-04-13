@@ -9,6 +9,10 @@ export default class addindust extends Component {
         this.onChangecrn = this.onChangecrn.bind(this);
         this.onChangeirn = this.onChangeirn.bind(this);
         this.onChangecategory = this.onChangecategory.bind(this);
+        this.onChangeIndustStatues = this.onChangeIndustStatues.bind(this);
+        this.onChangeLocation = this.onChangeLocation.bind(this);
+        this.onChangeStatus = this.onChangeStatus.bind(this);
+        this.onChangeNo_Violations = this.onChangeNo_Violations.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
 
@@ -18,13 +22,29 @@ export default class addindust extends Component {
             crn: '',
          //international registration number irn
             irn: '',
-            category: ''
+            category: '',
+            industry_status:'',
+            location:'',
+            status:'',
+            no_violations:''
            
         });
     }
     onChangeIndustryName(e) {
         this.setState({
             industry_name: e.target.value
+        });
+    }
+
+    onChangeIndustStatues(e) {
+        this.setState({
+            industry_status: e.target.value
+        });
+    }
+
+    onChangeLocation(e) {
+        this.setState({
+            location: e.target.value
         });
     }
 
@@ -47,6 +67,18 @@ export default class addindust extends Component {
                 category: e.target.value
             });
         }
+        onChangeStatus(e) {
+            
+            this.setState({
+                status: e.target.value
+            });
+        }
+        onChangeNo_Violations(e) {
+            
+            this.setState({
+                no_violations: e.target.value
+            });
+        }
 
         onSubmit(e) {
             e.preventDefault();
@@ -55,7 +87,11 @@ export default class addindust extends Component {
            industry_name: this.state.industry_name,
            crn: this.state.crn,
            irn: this.state.irn,
-           category: this.state.category   }
+           category: this.state.category,
+           industry_status: this.state.industry_status,
+           location: this.state.location ,
+           status:this.state.status,
+           no_violations:this.state.no_violations }
 
             console.log(Industries);
 
@@ -68,7 +104,11 @@ export default class addindust extends Component {
             crn: '',
          //international registration number irn
             irn: '',
-            category: ''
+            category: '',
+            industry_status:'',
+            location:'',
+            status:'',
+            no_violations:''
            
         })
     }
@@ -101,6 +141,38 @@ export default class addindust extends Component {
                             className="form-control"
                             value={this.state.irn}
                             onChange={this.onChangeirn}
+                            />
+                </div>
+                <div className="form-group"> 
+                    <label>Number of Violations: </label>
+                    <input  type="text"
+                            className="form-control"
+                            value={this.state.no_violations}
+                            onChange={this.onChangeNo_Violations}
+                            />
+                </div>
+                <div className="form-group"> 
+                    <label>Status: </label>
+                    <input  type="text"
+                            className="form-control"
+                            value={this.state.status}
+                            onChange={this.onChangeStatus}
+                            />
+                </div>
+                <div className="form-group"> 
+                    <label>Industry Current Status: </label>
+                    <input  type="text"
+                            className="form-control"
+                            value={this.state.industry_status}
+                            onChange={this.onChangeIndustStatues}
+                            />
+                </div>
+                <div className="form-group"> 
+                    <label>Location of Industry: </label>
+                    <input  type="text"
+                            className="form-control"
+                            value={this.state.location}
+                            onChange={this.onChangeLocation}
                             />
                 </div>
                 <div className="form-group">
@@ -138,6 +210,7 @@ export default class addindust extends Component {
                         <label className="form-check-label">3</label>
                     </div>
                 </div>
+
 
                 <div className="form-group">
                     <input type="submit" value="Add Industry" className="btn btn-primary" />

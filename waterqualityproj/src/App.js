@@ -9,6 +9,8 @@ import listViolations from "./components/violation-list.component";
 import home from "./components/home.component";
 import listindust from "./components/list-indust.component";
 import violatinos from "./components/violations.component";
+import EditIndust from "./components/edit-indust.component";
+
 
 
 class App extends Component {
@@ -17,7 +19,7 @@ class App extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank">
+            <a className="navbar-brand" href="https://codingthesmartway.com" target="_blank">
               
             </a>
             <Link to="/" className="navbar-brand">Water Quality Management</Link>
@@ -47,6 +49,8 @@ class App extends Component {
           <Route path="/industries"  component={listindust} />
           <Route path="/create" component={addindust} />
           <Route path="/violations"  component={violatinos} />
+          <Route path="/edit/:id"  component={EditIndust} />
+
         </div>
       </Router>
     );

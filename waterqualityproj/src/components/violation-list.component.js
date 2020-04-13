@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Violations = props => (
@@ -11,7 +10,7 @@ const Violations = props => (
       <td>{props.violations.violated_param}</td>
       <td>{props.violations.fine}</td>
       <td>
-        <Link to={"/edit/"+props.violations._id}>edit</Link> | <a href="#" onClick={() => { props.deleteViolation(props.violations._id) }}>delete</a>
+        <a href="#" onClick={() => { props.deleteViolation(props.violations._id) }}>delete</a>
       </td>
     </tr>
   )
@@ -58,7 +57,7 @@ export default class violationlist extends Component {
               <thead className="thead-light">
                 <tr>
                   <th>Name of Industry Visited</th>
-                  <th>Prevouis Visitation</th>
+                  <th>Prevouis Violations</th>
                   <th>Location</th>
                   <th>Approved Status</th>
                   <th>Violated Parameters</th>
